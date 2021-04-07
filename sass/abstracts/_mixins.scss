@@ -30,29 +30,38 @@ big-desktop
 
 USInG EM in media queries is considered to be good prectice
 
+ORDER : base + typography > general layout + grid > page layouts > components
+
 */
 
 @mixin respond($breakpoint) {
-  @if breakpoint==phone {
-    @media screen and (max-width: 600px) {
+  @if $breakpoint==phone {
+    // 1em = 16px so 600px / 16 = 37.5em
+    //600px
+    @media (max-width: 37.5em) {
       @content;
     }
   }
 
-  @if breakpoint==tab-port {
-    @media screen and (max-width: 900px) {
+  @if $breakpoint==tab-port {
+    // 1 em is 16px so 900px / 16px is
+    //900px
+    @media (max-width: 56.25em) {
       @content;
     }
   }
 
-  @if breakpoint==tab-land {
-    @media screen and (max-width: 1200px) {
+  @if $breakpoint==tab-land {
+    // 1 em is 16px so 1200px / 16px is
+    //1200px
+    @media (max-width: 75em) {
       @content;
     }
   }
 
-  @if breakpoint==big-desktop {
-    @media screen and (min-width: 1800px) {
+  @if $breakpoint==big-desktop {
+    //1800px
+    @media (min-width: 112.5em) {
       @content;
     }
   }
